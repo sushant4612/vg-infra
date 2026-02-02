@@ -508,7 +508,6 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             {/* Left Column */}
             <div>
-              <span className="text-[#C7B796] text-xs uppercase tracking-widest font-semibold block mb-6">Call to Action</span>
               <h2 className="text-4xl md:text-6xl font-serif leading-tight mb-8">
                 Transform Your Land into a <span className="text-[#71717A]">Branded Wealth Asset.</span>
               </h2>
