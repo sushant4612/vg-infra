@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Shield, Phone, MapPin, Award, Check, Building2, Users, Landmark, FileText, Scale, Home as HomeIcon, Palmtree } from "lucide-react";
+import { ArrowRight, Shield, Phone, MapPin, Award, Check, Building2, Users, Landmark, FileText, Scale, Home as HomeIcon, Palmtree, Download } from "lucide-react";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,11 +49,12 @@ export default function Home() {
       <section className="relative w-full h-screen flex items-center bg-[#101010]">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero_luxury_building_1770050956412.png"
+            src="/hero.jpg"
             alt="Luxury Architecture"
             fill
             className="object-cover opacity-80"
             priority
+            quality={100}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent" />
         </div>
@@ -77,14 +78,19 @@ export default function Home() {
               You own the land. We co invest, build, brand, and monetise — <span className="text-white font-serif italic">value is created together.</span>
             </p>
 
+            <p className="text-white/60 text-sm italic opacity-0 animate-[fadeUp_0.8s_ease-out_0.7s_forwards] border-l-2 border-[#A68B5B] pl-4">
+              For investors, landowners & capital partners seeking long-term real estate growth.
+            </p>
+
             <div className="pt-8 opacity-0 animate-[fadeUp_0.8s_ease-out_0.8s_forwards]">
-              <Link
-                href="#contact"
+              <a
+                href="https://wa.me/919711154000?text=Hello%2C%20I%E2%80%99m%20interested%20in%20learning%20more%20about%20VG%20Infra%E2%80%99s%20real%20estate%20investment%20opportunities.%20Kindly%20guide%20me%20on%20the%20next%20steps."
+                target="_blank"
                 className="inline-flex items-center gap-4 bg-[#A68B5B] text-white px-8 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-white hover:text-[#18181B] transition-all duration-300 group shadow-lg shadow-black/20"
               >
-                Request a Call
+                Request Investment Prospectus
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -320,14 +326,15 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
               <span className="text-[#A68B5B] text-xs uppercase tracking-widest font-semibold block mb-2">Performance</span>
-              <h2 className="text-3xl md:text-4xl font-serif text-white tracking-wide">PROVEN TRACK RECORD</h2>
+              <h2 className="text-3xl md:text-4xl font-serif text-white tracking-wide mb-2">PROVEN TRACK RECORD</h2>
+              <p className="text-white/60 text-sm font-light uppercase tracking-wider">Delivered & Executed Projects</p>
             </div>
 
             <Link
               href="#portfolio"
               className="hidden md:inline-flex items-center gap-3 px-6 py-3 border border-white/20 text-white text-xs uppercase tracking-widest font-semibold hover:bg-white hover:text-[#18181B] transition-all duration-300"
             >
-              View Track Record <ArrowRight className="w-3 h-3" />
+              View Delivered Projects & Achievements <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
 
@@ -359,7 +366,7 @@ export default function Home() {
               href="#portfolio"
               className="inline-flex w-full justify-center items-center gap-3 px-6 py-3 border border-white/20 text-white text-xs uppercase tracking-widest font-semibold hover:bg-white hover:text-[#18181B] transition-all duration-300"
             >
-              View Track Record <ArrowRight className="w-3 h-3" />
+              View Delivered Projects & Achievements <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
         </div>
@@ -473,7 +480,111 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Portfolio Section (NEW) */}
+      <section id="portfolio" className="py-24 bg-[#FAFAF8] border-b border-[#E4E4E7]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-20">
+          <div className="mb-16">
+            <span className="text-[#A68B5B] text-xs uppercase tracking-widest font-semibold block mb-3">Portfolio</span>
+            <h2 className="text-3xl md:text-5xl font-serif text-[#18181B] tracking-tight mb-6">Featured Developments</h2>
+            <div className="h-1 w-20 bg-[#A68B5B]"></div>
+          </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {[
+              {
+                name: "The Grand Horizon", // Placeholder name
+                location: "Gurugram, NCR",
+                type: "Residential / High-rise",
+                status: "Delivered",
+                image: "/images/project_highrise_1770050987729.png",
+                tagColor: "bg-green-500"
+              },
+              {
+                name: "Serene Valley Estate", // Placeholder name
+                location: "Dehradun, Uttarakhand",
+                type: "Luxury Villas / Land",
+                status: "Ongoing",
+                image: "/images/project_villa_1770051015298.png",
+                tagColor: "bg-yellow-500"
+              },
+              {
+                name: "Skyline Heights", // Placeholder name
+                location: "Noida Expressway",
+                type: "Commercial / Mixed Use",
+                status: "Planned",
+                image: "/images/hero_luxury_building_v2.png",
+                tagColor: "bg-blue-500"
+              }
+            ].map((project, i) => (
+              <div key={i} className="group relative bg-white border border-[#E4E4E7] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                <div className="relative h-80 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-[#18181B] flex items-center gap-2">
+                    <span className={`w-2 h-2 rounded-full ${project.tagColor} animate-pulse`}></span>
+                    {project.status}
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-8">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <span className="text-[#A68B5B] text-xs uppercase tracking-widest font-semibold block mb-1">{project.type}</span>
+                      <h3 className="text-2xl font-serif text-[#18181B]">{project.name}</h3>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 text-[#71717A] text-sm mb-6">
+                    <MapPin className="w-4 h-4" />
+                    {project.location}
+                  </div>
+                  <a href="https://wa.me/919711154000?text=Hello%2C%20I%E2%80%99m%20interested%20in%20learning%20more%20about%20VG%20Infra%E2%80%99s%20real%20estate%20investment%20opportunities.%20Kindly%20guide%20me%20on%20the%20next%20steps." target="_blank" className="w-full inline-flex justify-center items-center gap-2 py-3 border border-[#E4E4E7] text-[#18181B] text-xs uppercase tracking-widest font-semibold hover:bg-[#18181B] hover:text-white hover:border-[#18181B] transition-all">
+                    Request Investment Prospectus <Download className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RERA & Banking Approvals */}
+      <section className="py-16 bg-white border-b border-[#E4E4E7]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-20">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="md:w-1/3">
+              <h3 className="text-xl font-serif text-[#18181B] mb-2">Compliance & Approvals</h3>
+              <p className="text-[#71717A] text-sm leading-relaxed">
+                Fully compliant with RERA regulations and approved by leading financial institutions.
+              </p>
+            </div>
+            <div className="md:w-2/3 flex flex-wrap gap-8 items-center justify-center md:justify-end">
+              <div className="flex flex-col items-center">
+                <div className="w-20 h-20 relative mb-2">
+                  <Image src="/images/logos/rera-logo.svg" alt="RERA Registered" fill className="object-contain" />
+                </div>
+                <span className="text-[10px] uppercase tracking-widest text-[#71717A] mb-1">RERA Registered</span>
+                <span className="font-mono text-xs font-semibold text-[#18181B]">UPRERAPRJ123456</span>
+              </div>
+              <div className="h-12 w-px bg-[#E4E4E7] mx-4 hidden md:block"></div>
+              <div className="flex gap-8 items-center opacity-100">
+                <div className="w-24 h-12 relative">
+                  <Image src="/images/logos/hdfc-logo.svg" alt="HDFC Bank" fill className="object-contain" />
+                </div>
+                <div className="w-24 h-12 relative">
+                  <Image src="/images/logos/sbi-logo.svg" alt="SBI" fill className="object-contain" />
+                </div>
+                <div className="w-24 h-12 relative">
+                  <Image src="/images/logos/icici-logo.png" alt="ICICI Bank" fill className="object-contain" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* What Happens Next Section */}
       <section id="process" className="py-24 bg-white border-b border-[#E4E4E7]">
@@ -537,9 +648,17 @@ export default function Home() {
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-start gap-4 text-sm text-white/50">
+                <div className="flex items-start gap-4 text-sm text-white/50 hover:text-white transition-colors">
                   <MapPin className="w-4 h-4 mt-1 text-[#A68B5B]" />
-                  <span>New Delhi, India</span>
+                  <span>123, Corporate Park, Sector 62, Gurugram, India</span>
+                </div>
+                <div className="flex items-start gap-4 text-sm text-white/50 hover:text-white transition-colors">
+                  <div className="w-4 h-4 mt-1 text-[#A68B5B] flex items-center justify-center font-serif">@</div>
+                  <a href="mailto:partnerships@vg-infra.com">partnerships@vg-infra.com</a>
+                </div>
+                <div className="flex items-start gap-4 text-sm text-white/50 hover:text-white transition-colors">
+                  <Users className="w-4 h-4 mt-1 text-[#A68B5B]" />
+                  <a href="#">Investor Relations</a>
                 </div>
                 {/* 
                 <div className="flex items-start gap-4 text-sm text-white/50">
@@ -560,6 +679,16 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/919711154000?text=Hello%2C%20I%E2%80%99m%20interested%20in%20learning%20more%20about%20VG%20Infra%E2%80%99s%20real%20estate%20investment%20opportunities.%20Kindly%20guide%20me%20on%20the%20next%20steps."
+        target="_blank"
+        className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group"
+      >
+        <svg viewBox="0 0 24 24" className="w-8 h-8 fill-white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      </a>
     </main >
   );
 }
