@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Shield, Phone, MapPin, Award, Check, Building2, Users, Landmark, FileText, Scale, Home as HomeIcon, Palmtree, Download, Handshake, TrendingUp, Linkedin } from "lucide-react";
+import { ArrowRight, Shield, Phone, MapPin, Award, Check, Building2, Users, Landmark, FileText, Scale, Home as HomeIcon, Palmtree, Download, Handshake, TrendingUp, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
+import ProjectCard from "./components/ProjectCard";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -542,7 +543,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Section (NEW) */}
+      {/* Portfolio Section (Updated) */}
       <section id="portfolio" className="py-24 bg-[#FAFAF8] border-b border-[#E4E4E7]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-20">
           <div className="mb-16">
@@ -551,63 +552,60 @@ export default function Home() {
             <div className="h-1 w-20 bg-[#A68B5B]"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "The Grand Horizon", // Placeholder name
-                location: "Gurugram, NCR",
-                type: "Residential / High-rise",
-                status: "Delivered",
-                image: "/images/project_highrise_1770050987729.png",
-                tagColor: "bg-green-500"
-              },
-              {
-                name: "Serene Valley Estate", // Placeholder name
+                name: "Serene Valley Estate",
                 location: "Dehradun, Uttarakhand",
                 type: "Luxury Villas / Land",
-                status: "Ongoing",
-                image: "/images/project_villa_1770051015298.png",
-                tagColor: "bg-yellow-500"
+                status: "Delivered",
+                tagColor: "bg-green-500",
+                images: [
+                  "/images/projects/dehradun/dehradun1.jpeg",
+                  "/images/projects/dehradun/dehradun2.jpeg",
+                  "/images/projects/dehradun/dehradun3.jpeg",
+                  "/images/projects/dehradun/dehradun4.jpeg",
+                  "/images/projects/dehradun/dehradun5.jpeg",
+                  "/images/projects/dehradun/dehradun6.jpeg"
+                ]
               },
               {
-                name: "Skyline Heights", // Placeholder name
-                location: "Noida Expressway",
-                type: "Commercial / Mixed Use",
-                status: "Planned",
-                image: "/images/hero_luxury_building_v2.png",
-                tagColor: "bg-blue-500"
+                name: "Noida Residency",
+                location: "Noida, UP",
+                type: "Residential Project",
+                status: "Delivered",
+                tagColor: "bg-green-500",
+                images: ["/images/projects/noida/noida1.jpeg"]
+              },
+              {
+                name: "Pitampura Landmark",
+                location: "Pitampura, New Delhi",
+                type: "Residential / Commercial",
+                status: "Ongoing",
+                tagColor: "bg-yellow-500",
+                images: ["/images/projects/delhi-pritampura/delhi1.jpeg"]
+              },
+              {
+                name: "Noida Extension Heights",
+                location: "Noida Extension",
+                type: "470 Apartments",
+                status: "Upcoming",
+                tagColor: "bg-blue-500",
+                images: ["/images/projects/noida-un/WhatsApp Image 2026-02-16 at 18.28.51.jpeg"]
+              },
+              {
+                name: "Goa Coastal Villas",
+                location: "North Goa",
+                type: "6 Luxury Stand-alone Villas",
+                status: "Ongoing",
+                tagColor: "bg-yellow-500",
+                images: [
+                  "/images/projects/goa/goa1.jpeg",
+                  "/images/projects/goa/goa2.jpeg"
+                ]
               }
             ].map((project, i) => (
-              <div key={i} className="group relative bg-white border border-[#E4E4E7] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-[#18181B] flex items-center gap-2">
-                    <span className={`w-2 h-2 rounded-full ${project.tagColor} animate-pulse`}></span>
-                    {project.status}
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-8">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <span className="text-[#A68B5B] text-xs uppercase tracking-widest font-semibold block mb-1">{project.type}</span>
-                      <h3 className="text-2xl font-serif text-[#18181B]">{project.name}</h3>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-[#71717A] text-sm mb-6">
-                    <MapPin className="w-4 h-4" />
-                    {project.location}
-                  </div>
-                  <a href="https://wa.me/919711154000?text=Hello%2C%20I%E2%80%99m%20interested%20in%20learning%20more%20about%20VG%20Infra%E2%80%99s%20real%20estate%20investment%20opportunities.%20Kindly%20guide%20me%20on%20the%20next%20steps." target="_blank" className="w-full inline-flex justify-center items-center gap-2 py-3 border border-[#E4E4E7] text-[#18181B] text-xs uppercase tracking-widest font-semibold hover:bg-[#18181B] hover:text-white hover:border-[#18181B] transition-all">
-                    Request Investment Prospectus <Download className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
+              <ProjectCard key={i} project={project} />
             ))}
           </div>
         </div>
@@ -683,15 +681,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-6xl font-serif leading-tight mb-8">
                 Transform Your Land into a <span className="text-[#71717A]">Branded Wealth Asset.</span>
               </h2>
-              <a href="#contact" className="inline-flex items-center gap-4 text-white hover:text-[#C7B796] transition-colors group">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-[#C7B796] group-hover:text-[#18181B] transition-all">
-                  <ArrowRight className="w-5 h-5" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xl md:text-2xl font-serif tracking-wide">Get in Touch</span>
-                  <span className="text-xs uppercase tracking-widest text-white/50 group-hover:text-white/70">Request a Confidential Call</span>
-                </div>
-              </a>
+
             </div>
 
             {/* Right Column */}
