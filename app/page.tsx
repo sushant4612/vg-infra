@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Shield, Phone, MapPin, Award, Check, Building2, Users, Landmark, FileText, Scale, Home as HomeIcon, Palmtree, Download } from "lucide-react";
+import { ArrowRight, Shield, Phone, MapPin, Award, Check, Building2, Users, Landmark, FileText, Scale, Home as HomeIcon, Palmtree, Download, Handshake, TrendingUp, Linkedin } from "lucide-react";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -404,6 +404,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Strategic Real Estate Participation Models (New Section) */}
+      <section className="py-24 bg-white border-b border-[#E4E4E7]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-20">
+          <div className="max-w-3xl mb-16">
+            <span className="text-[#A68B5B] text-xs uppercase tracking-widest font-semibold block mb-3">Engagement Models</span>
+            <h2 className="text-3xl md:text-5xl font-serif text-[#18181B] tracking-tight mb-6">Strategic Real Estate <br /> Participation Models</h2>
+            <div className="h-1 w-20 bg-[#A68B5B] mb-8"></div>
+            <p className="text-[#71717A] text-lg font-light leading-relaxed">
+              We structure real estate investments to maximise value, manage risk, and align returns.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {[
+              {
+                title: "Joint Development Model",
+                desc: "Invest in land while we handle planning, construction, and sales — with profits shared under a defined structure.",
+                icon: Handshake
+              },
+              {
+                title: "Early Entry Investment Model",
+                desc: "Participate in our ongoing projects at an early stage with structured terms and defined return potential.",
+                icon: TrendingUp
+              },
+              {
+                title: "Landowner Development Model",
+                desc: "Own land? We evaluate, develop, and execute the project, sharing the completed inventory as agreed.",
+                icon: MapPin
+              },
+              {
+                title: "Fully Managed Investment Model",
+                desc: "A complete, hands-off structure where we manage land, development, and exit end-to-end.",
+                icon: Shield
+              }
+            ].map((model, i) => (
+              <div key={i} className="group flex gap-6 p-8 border border-[#E4E4E7] hover:border-[#A68B5B] hover:shadow-lg transition-all duration-300 bg-[#FAFAF8]">
+                <div className="shrink-0">
+                  <div className="w-14 h-14 rounded-full bg-white border border-[#E4E4E7] flex items-center justify-center text-[#A68B5B] group-hover:bg-[#A68B5B] group-hover:text-white transition-all duration-300 shadow-sm">
+                    <model.icon className="w-6 h-6" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-serif text-[#18181B] mb-3 group-hover:text-[#A68B5B] transition-colors">
+                    {i + 1}. {model.title}
+                  </h3>
+                  <p className="text-[#71717A] text-sm leading-relaxed group-hover:text-[#18181B]/80 transition-colors">
+                    {model.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 p-6 bg-[#18181B] text-white/80 rounded-sm border-l-4 border-[#A68B5B]">
+            <p className="text-sm md:text-base italic font-serif tracking-wide">
+              "Each model is structured case-by-case based on feasibility, capital structure, and alignment."
+            </p>
+          </div>
+        </div>
+
+      </section>
+
       {/* Who This Is For Section */}
       <section className="py-24 bg-[#18181B] text-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-20">
@@ -567,7 +629,6 @@ export default function Home() {
                   <Image src="/images/logos/rera-logo.svg" alt="RERA Registered" fill className="object-contain" />
                 </div>
                 <span className="text-[10px] uppercase tracking-widest text-[#71717A] mb-1">RERA Registered</span>
-                <span className="font-mono text-xs font-semibold text-[#18181B]">UPRERAPRJ123456</span>
               </div>
               <div className="h-12 w-px bg-[#E4E4E7] mx-4 hidden md:block"></div>
               <div className="flex gap-8 items-center opacity-100">
@@ -622,12 +683,12 @@ export default function Home() {
               <h2 className="text-4xl md:text-6xl font-serif leading-tight mb-8">
                 Transform Your Land into a <span className="text-[#71717A]">Branded Wealth Asset.</span>
               </h2>
-              <a href="tel:+919711154000" className="inline-flex items-center gap-4 text-white hover:text-[#C7B796] transition-colors group">
+              <a href="#contact" className="inline-flex items-center gap-4 text-white hover:text-[#C7B796] transition-colors group">
                 <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-[#C7B796] group-hover:text-[#18181B] transition-all">
-                  <Phone className="w-5 h-5" />
+                  <ArrowRight className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xl md:text-2xl font-serif tracking-wide">+91 97111 54000</span>
+                  <span className="text-xl md:text-2xl font-serif tracking-wide">Get in Touch</span>
                   <span className="text-xs uppercase tracking-widest text-white/50 group-hover:text-white/70">Request a Confidential Call</span>
                 </div>
               </a>
@@ -650,11 +711,15 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="flex items-start gap-4 text-sm text-white/50 hover:text-white transition-colors">
                   <MapPin className="w-4 h-4 mt-1 text-[#A68B5B]" />
-                  <span>123, Corporate Park, Sector 62, Gurugram, India</span>
+                  <span>KD-170, First Floor, Pitampura, Near Kohat Metro Station, New Delhi - 110034</span>
                 </div>
                 <div className="flex items-start gap-4 text-sm text-white/50 hover:text-white transition-colors">
                   <div className="w-4 h-4 mt-1 text-[#A68B5B] flex items-center justify-center font-serif">@</div>
                   <a href="mailto:partnerships@vg-infra.com">partnerships@vg-infra.com</a>
+                </div>
+                <div className="flex items-start gap-4 text-sm text-white/50 hover:text-white transition-colors">
+                  <Linkedin className="w-4 h-4 mt-1 text-[#A68B5B]" />
+                  <a href="https://www.linkedin.com/in/verun-gupta-417657102" target="_blank" rel="noopener noreferrer">Verun Gupta</a>
                 </div>
                 <div className="flex items-start gap-4 text-sm text-white/50 hover:text-white transition-colors">
                   <Users className="w-4 h-4 mt-1 text-[#A68B5B]" />
