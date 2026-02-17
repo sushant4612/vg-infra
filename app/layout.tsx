@@ -19,6 +19,9 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "VG INNFRA | Premium Real Estate Development",
   description: "Transforming Ownership into Branded Wealth. Secure, co-invested, institutional-grade development.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

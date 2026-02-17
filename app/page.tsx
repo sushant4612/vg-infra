@@ -25,11 +25,14 @@ export default function Home() {
         : "bg-transparent border-white/10 py-6"
         }`}>
         <div className="max-w-[1400px] mx-auto px-6 md:px-20 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2">
-            <span className={`text-2xl md:text-3xl font-serif font-semibold tracking-tight transition-colors duration-500 ${scrolled ? "text-[#18181B]" : "text-white"
-              }`}>
-              VG<span className="text-[#A68B5B]">.</span>INNFRA
-            </span>
+          <Link href="/" className="relative h-16 w-16 transition-all duration-300">
+            <Image
+              src="/logo.png"
+              alt="VG INNFRA Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </Link>
           <div className={`hidden md:flex items-center gap-12 text-sm font-medium transition-colors duration-500 ${scrolled ? "text-[#71717A]" : "text-white/90"
             }`}>
@@ -87,10 +90,10 @@ export default function Home() {
               <a
                 href="https://wa.me/919711154000?text=Hello%2C%20I%E2%80%99m%20interested%20in%20learning%20more%20about%20VG%20Infra%E2%80%99s%20real%20estate%20investment%20opportunities.%20Kindly%20guide%20me%20on%20the%20next%20steps."
                 target="_blank"
-                className="inline-flex items-center gap-4 bg-[#A68B5B] text-white px-8 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-white hover:text-[#18181B] transition-all duration-300 group shadow-lg shadow-black/20"
+                className="inline-flex items-center justify-center gap-2 md:gap-4 bg-[#A68B5B] text-white px-5 py-3 md:px-8 md:py-4 text-[10px] md:text-sm uppercase tracking-widest font-semibold hover:bg-white hover:text-[#18181B] transition-all duration-300 group shadow-lg shadow-black/20 w-full md:w-auto"
               >
                 Request Investment Prospectus
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                <ArrowRight className="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-2 transition-transform" />
               </a>
             </div>
           </div>
