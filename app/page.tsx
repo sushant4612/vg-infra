@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Shield, Phone, MapPin, Award, Check, Building2, Users, Landmark, FileText, Scale, Home as HomeIcon, Palmtree, Download, Handshake, TrendingUp, Linkedin, ChevronLeft, ChevronRight, Instagram } from "lucide-react";
+import { ArrowRight, Shield, Phone, MapPin, Award, Check, Building2, Users, Landmark, FileText, Scale, Home as HomeIcon, Palmtree, Download, Handshake, TrendingUp, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
 import ProjectCard from "./components/ProjectCard";
 
 export default function Home() {
@@ -739,17 +739,18 @@ export default function Home() {
       </footer>
       {/* Floating Action Buttons */}
       <div className="fixed top-1/2 right-2 md:right-8 -translate-y-1/2 z-50 flex flex-col gap-3 md:gap-4 items-end">
-        {/* Instagram */}
+        {/* LinkedIn */}
         <div className="group flex items-center gap-3">
           <span className="hidden md:block bg-white text-[#18181B] px-3 py-1.5 rounded-md text-xs font-semibold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-            Instagram
+            LinkedIn
           </span>
           <a
-            href="https://www.instagram.com"
+            href="https://www.linkedin.com/in/verun-gupta-417657102"
             target="_blank"
-            className="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 text-white"
+            rel="noopener noreferrer"
+            className="w-10 h-10 md:w-14 md:h-14 bg-[#0A66C2] rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 text-white"
           >
-            <Instagram className="w-5 h-5 md:w-7 md:h-7" />
+            <Linkedin className="w-5 h-5 md:w-7 md:h-7" />
           </a>
         </div>
 
