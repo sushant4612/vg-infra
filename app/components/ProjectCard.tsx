@@ -16,6 +16,34 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    // Minimum distance (in pixels) to be considered a swipe
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+        }
+        if (isRightSwipe) {
+            setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+        }
+    };
 
     const nextImage = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -31,7 +59,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
     return (
         <div className="group relative bg-white border border-[#E4E4E7] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
-            <div className="relative h-64 md:h-72 w-full overflow-hidden bg-[#18181B]">
+            <div
+                className="relative h-64 md:h-72 w-full overflow-hidden bg-[#18181B]"
+                onTouchStart={project.images.length > 1 ? onTouchStart : undefined}
+                onTouchMove={project.images.length > 1 ? onTouchMove : undefined}
+                onTouchEnd={project.images.length > 1 ? onTouchEnd : undefined}
+            >
                 <Image
                     src={project.images[currentImageIndex]}
                     alt={project.name}
