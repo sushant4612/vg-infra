@@ -3,11 +3,12 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Shield, Phone, MapPin, Award, Check, Building2, Users, Landmark, FileText, Scale, Home as HomeIcon, Palmtree, Download, Handshake, TrendingUp, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
+import { Menu, X, ArrowRight, Shield, Phone, MapPin, Award, Check, Building2, Users, Landmark, FileText, Scale, Home as HomeIcon, Palmtree, Download, Handshake, TrendingUp, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
 import ProjectCard from "./components/ProjectCard";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,8 +47,57 @@ export default function Home() {
               Get in Touch
             </Link>
           </div>
+
+          {/* Mobile Menu Toggle Button */}
+          <button
+            className={`md:hidden p-2 transition-colors duration-300 ${scrolled ? "text-[#18181B]" : "text-white"}`}
+            onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="Open Mobile Menu"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Sidebar Overlay */}
+      <div
+        className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] md:hidden transition-opacity duration-500 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
+
+      {/* Mobile Sidebar Panel */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-[#101010] border-l border-white/10 z-[100] md:hidden transition-transform duration-500 transform ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} flex flex-col`}
+      >
+        <div className="flex justify-between items-center p-6 border-b border-white/10">
+          <span className="text-xl font-serif text-white font-semibold">
+            VG<span className="text-[#A68B5B]">.</span>INNFRA
+          </span>
+          <button
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-white/60 hover:text-white p-2 transition-colors"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </div>
+
+        <div className="flex flex-col px-6 py-10 space-y-8 flex-grow">
+          <Link onClick={() => setIsMobileMenuOpen(false)} href="#model" className="text-white hover:text-[#A68B5B] text-sm uppercase tracking-widest transition-colors font-medium">Model</Link>
+          <Link onClick={() => setIsMobileMenuOpen(false)} href="#structure" className="text-white hover:text-[#A68B5B] text-sm uppercase tracking-widest transition-colors font-medium">Structure</Link>
+          <Link onClick={() => setIsMobileMenuOpen(false)} href="#process" className="text-white hover:text-[#A68B5B] text-sm uppercase tracking-widest transition-colors font-medium">Process</Link>
+          <Link onClick={() => setIsMobileMenuOpen(false)} href="#contact" className="text-white hover:text-[#A68B5B] text-sm uppercase tracking-widest transition-colors font-medium">Contact</Link>
+        </div>
+
+        <div className="p-6 border-t border-white/10">
+          <Link
+            href="#contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="flex justify-center w-full bg-[#A68B5B] text-white px-6 py-4 text-xs uppercase tracking-widest font-semibold hover:bg-white hover:text-[#18181B] transition-colors shadow-lg shadow-black/20"
+          >
+            Get in Touch
+          </Link>
+        </div>
+      </div>
 
       {/* Hero Section */}
       <section className="relative w-full h-screen flex items-center bg-[#101010]">

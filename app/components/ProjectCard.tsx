@@ -16,26 +16,37 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [touchStart, setTouchStart] = useState<number | null>(null);
-    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const [touchStartX, setTouchStartX] = useState<number | null>(null);
+    const [touchEndX, setTouchEndX] = useState<number | null>(null);
+    const [touchStartY, setTouchStartY] = useState<number | null>(null);
+    const [touchEndY, setTouchEndY] = useState<number | null>(null);
 
     // Minimum distance (in pixels) to be considered a swipe
     const minSwipeDistance = 50;
 
     const onTouchStart = (e: React.TouchEvent) => {
-        setTouchEnd(null);
-        setTouchStart(e.targetTouches[0].clientX);
+        setTouchEndX(null);
+        setTouchEndY(null);
+        setTouchStartX(e.targetTouches[0].clientX);
+        setTouchStartY(e.targetTouches[0].clientY);
     };
 
     const onTouchMove = (e: React.TouchEvent) => {
-        setTouchEnd(e.targetTouches[0].clientX);
+        setTouchEndX(e.targetTouches[0].clientX);
+        setTouchEndY(e.targetTouches[0].clientY);
     };
 
     const onTouchEnd = () => {
-        if (!touchStart || !touchEnd) return;
-        const distance = touchStart - touchEnd;
-        const isLeftSwipe = distance > minSwipeDistance;
-        const isRightSwipe = distance < -minSwipeDistance;
+        if (!touchStartX || !touchEndX || !touchStartY || !touchEndY) return;
+
+        const distanceX = touchStartX - touchEndX;
+        const distanceY = touchStartY - touchEndY;
+
+        // If vertical movement is greater than horizontal movement, it's a scroll, not a swipe
+        if (Math.abs(distanceY) > Math.abs(distanceX)) return;
+
+        const isLeftSwipe = distanceX > minSwipeDistance;
+        const isRightSwipe = distanceX < -minSwipeDistance;
 
         if (isLeftSwipe) {
             setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
