@@ -758,7 +758,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-start gap-4 text-sm text-white/50 hover:text-white transition-colors">
                   <div className="w-4 h-4 mt-1 text-[#A68B5B] flex items-center justify-center font-serif">@</div>
-                  <a href="mailto:partnerships@vg-infra.com">partnerships@vg-infra.com</a>
+                  <a href="mailto:verun@vginnfra.com">verun@vginnfra.com</a>
                 </div>
                 <div className="flex items-start gap-4 text-sm text-white/50 hover:text-white transition-colors">
                   <Linkedin className="w-4 h-4 mt-1 text-[#A68B5B]" />
