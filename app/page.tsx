@@ -458,66 +458,222 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Strategic Real Estate Participation Models (New Section) */}
-      <section className="py-24 bg-white border-b border-[#E4E4E7]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-20">
-          <div className="max-w-3xl mb-16">
+      {/* Strategic Real Estate Participation Models */}
+      <section className="py-24 md:py-32 bg-[#F5F3EE] border-b border-[#E4E4E7] relative overflow-hidden">
+        {/* Subtle architectural line pattern background */}
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(135deg, transparent 45%, #71717A 45%, #71717A 45.5%, transparent 45.5%),
+              linear-gradient(225deg, transparent 45%, #71717A 45%, #71717A 45.5%, transparent 45.5%)
+            `,
+            backgroundSize: '60px 60px'
+          }}
+        />
+
+        <div className="max-w-[1200px] mx-auto px-6 md:px-20 relative z-10">
+          {/* Section Header */}
+          <div className="max-w-3xl mb-20 text-center mx-auto">
             <span className="text-[#A68B5B] text-xs uppercase tracking-widest font-semibold block mb-3">Engagement Models</span>
             <h2 className="text-3xl md:text-5xl font-serif text-[#18181B] tracking-tight mb-6">Strategic Real Estate <br /> Participation Models</h2>
-            <div className="h-1 w-20 bg-[#A68B5B] mb-8"></div>
+            <div className="h-1 w-20 bg-[#A68B5B] mx-auto mb-8"></div>
             <p className="text-[#71717A] text-lg font-light leading-relaxed">
               We structure real estate investments to maximise value, manage risk, and align returns.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {[
-              {
-                title: "Joint Development Model",
-                desc: "Invest in land while we handle planning, construction, and sales — with profits shared under a defined structure.",
-                icon: Handshake
-              },
-              {
-                title: "Early Entry Investment Model",
-                desc: "Participate in our ongoing projects at an early stage with structured terms and defined return potential.",
-                icon: TrendingUp
-              },
-              {
-                title: "Landowner Development Model",
-                desc: "Own land? We evaluate, develop, and execute the project, sharing the completed inventory as agreed.",
-                icon: MapPin
-              },
-              {
-                title: "Fully Managed Investment Model",
-                desc: "A complete, hands-off structure where we manage land, development, and exit end-to-end.",
-                icon: Shield
-              }
-            ].map((model, i) => (
-              <div key={i} className="group flex gap-6 p-8 border border-[#E4E4E7] hover:border-[#A68B5B] hover:shadow-lg transition-all duration-300 bg-[#FAFAF8]">
-                <div className="shrink-0">
-                  <div className="w-14 h-14 rounded-full bg-white border border-[#E4E4E7] flex items-center justify-center text-[#A68B5B] group-hover:bg-[#A68B5B] group-hover:text-white transition-all duration-300 shadow-sm">
-                    <model.icon className="w-6 h-6" />
-                  </div>
-                </div>
+          {/* Model Cards */}
+          <div className="flex flex-col gap-16 md:gap-20">
+
+            {/* MODEL 01 — Development Management Model (DMM) */}
+            <div className="group">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-6">
+                <span className="inline-flex items-center justify-center bg-[#8B1A1A] text-white text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold px-4 py-2 shrink-0 shadow-md">
+                  Model 01
+                </span>
                 <div>
-                  <h3 className="text-xl font-serif text-[#18181B] mb-3 group-hover:text-[#A68B5B] transition-colors">
-                    {i + 1}. {model.title}
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#18181B] leading-tight">
+                    Development Management Model (DMM)
                   </h3>
-                  <p className="text-[#71717A] text-sm leading-relaxed group-hover:text-[#18181B]/80 transition-colors">
-                    {model.desc}
+                  <p className="text-[#71717A] text-sm md:text-base mt-2 leading-relaxed max-w-2xl italic">
+                    End-to-End Development &amp; Monetisation Platform. A fully managed platform where VG INNFRA takes complete control to maximise project value.
                   </p>
                 </div>
               </div>
-            ))}
+              {/* 2×2 Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 border border-[#D4D0C8] bg-[#FAF9F6] group-hover:shadow-xl transition-shadow duration-500">
+                <div className="p-6 md:p-8 border-b md:border-b md:border-r border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Structure &amp; Scope</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    VG INNFRA assumes full responsibility across Planning → Execution → Financial Control → Sales.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8 border-b border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Client Role</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Provides land and project funding; participates in key approvals.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8 border-b md:border-b-0 md:border-r border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Commercial Structure</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    5% of Gross Development Value (GDV). Split as 2% for Development/Execution Management and 3% for Sales/Revenue Management.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Ideal Profile &amp; Outcomes</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Designed for small/mid-scale developers and landowners (₹5–50 Cr projects). Results in higher realisations (₹/sqft), faster absorption, and financial transparency.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* MODEL 02 — Joint Development Model (JDM) */}
+            <div className="group">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-6">
+                <span className="inline-flex items-center justify-center bg-[#8B1A1A] text-white text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold px-4 py-2 shrink-0 shadow-md">
+                  Model 02
+                </span>
+                <div>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#18181B] leading-tight">
+                    Joint Development Model (JDM)
+                  </h3>
+                  <p className="text-[#71717A] text-sm md:text-base mt-2 leading-relaxed max-w-2xl italic">
+                    Strategic Land Partnership Model. Landowners and VG INNFRA co-develop projects and share the full upside of value creation.
+                  </p>
+                </div>
+              </div>
+              {/* 2×2 Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 border border-[#D4D0C8] bg-[#FAF9F6] group-hover:shadow-xl transition-shadow duration-500">
+                <div className="p-6 md:p-8 border-b md:border-b md:border-r border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Structure &amp; Scope</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    VG INNFRA leads complete development (planning, regulatory, execution, sales) and invests in construction/sales management.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8 border-b border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Landowner Role</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Contributes land as equity. Participates in strategic decisions. Shares in project outcomes. Note: No refundable or non-refundable advances are provided for entering the JDM.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8 border-b md:border-b-0 md:border-r border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Commercial Structure</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Revenue share, area share, or profit share based on a structured agreement.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Ideal Profile &amp; Outcomes</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Designed for landowners with high-value plots, redevelopment opportunities, and premium locations. Maximises land value without operational burden.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* MODEL 03 — Guided Development Model (GDM) */}
+            <div className="group">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-6">
+                <span className="inline-flex items-center justify-center bg-[#8B1A1A] text-white text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold px-4 py-2 shrink-0 shadow-md">
+                  Model 03
+                </span>
+                <div>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#18181B] leading-tight">
+                    Guided Development Model (GDM)
+                  </h3>
+                  <p className="text-[#71717A] text-sm md:text-base mt-2 leading-relaxed max-w-2xl italic">
+                    Structured Entry into Development. VG INNFRA helps investors acquire land and co-develop projects with shared returns.
+                  </p>
+                </div>
+              </div>
+              {/* 2×2 Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 border border-[#D4D0C8] bg-[#FAF9F6] group-hover:shadow-xl transition-shadow duration-500">
+                <div className="p-6 md:p-8 border-b md:border-b md:border-r border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Structure &amp; Scope</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    3 Phases: Opportunity Identification (sourcing/feasibility) → Acquisition Support (structuring) → Development Partnership (joint execution). VG INNFRA invests in construction/sales.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8 border-b border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Investor Role</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Capital deployment for land acquisition; strategic participation in development.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8 border-b md:border-b-0 md:border-r border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Commercial Structure</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Profit sharing based on structured agreement.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Ideal Profile &amp; Outcomes</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Designed for first-time developers, capital-backed individuals, and investors seeking direct development exposure with reduced execution risk.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* MODEL 04 — Early Entry Investment Model (EIM) */}
+            <div className="group">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-6">
+                <span className="inline-flex items-center justify-center bg-[#8B1A1A] text-white text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold px-4 py-2 shrink-0 shadow-md">
+                  Model 04
+                </span>
+                <div>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#18181B] leading-tight">
+                    Early Entry Investment Model (EIM)
+                  </h3>
+                  <p className="text-[#71717A] text-sm md:text-base mt-2 leading-relaxed max-w-2xl italic">
+                    Structured Real Estate Investment Platform. Offering early access to curated projects with professional execution and structured returns.
+                  </p>
+                </div>
+              </div>
+              {/* 2×2 Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 border border-[#D4D0C8] bg-[#FAF9F6] group-hover:shadow-xl transition-shadow duration-500">
+                <div className="p-6 md:p-8 border-b md:border-b md:border-r border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Structure &amp; Scope</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Capital deployed towards land acquisition and initial development. VG INNFRA manages opportunity identification, structuring, full execution, and exit strategy.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8 border-b border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Investor Role</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Pure capital investment at the early stage of the project lifecycle.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8 border-b md:border-b-0 md:border-r border-[#D4D0C8]">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Commercial Structure</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Fixed return OR Profit-linked return.
+                  </p>
+                </div>
+                <div className="p-6 md:p-8">
+                  <h4 className="text-base md:text-lg font-serif font-semibold text-[#18181B] mb-3">Ideal Profile &amp; Outcomes</h4>
+                  <p className="text-[#52525B] text-sm leading-relaxed">
+                    Designed for HNIs, UHNIs, NRIs, Wealth Managers, and Family Offices. Offers enhanced return potential with professionally managed execution.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div className="mt-12 p-6 bg-[#18181B] text-white/80 rounded-sm border-l-4 border-[#A68B5B]">
+          {/* Bottom Quote */}
+          <div className="mt-16 p-6 bg-[#18181B] text-white/80 rounded-sm border-l-4 border-[#A68B5B]">
             <p className="text-sm md:text-base italic font-serif tracking-wide">
-              "Each model is structured case-by-case based on feasibility, capital structure, and alignment."
+              &quot;Each model is structured case-by-case based on feasibility, capital structure, and alignment.&quot;
             </p>
           </div>
         </div>
-
       </section>
 
       {/* Who This Is For Section */}
